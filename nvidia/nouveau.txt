@@ -1,7 +1,0 @@
-zypper remove Mesa-dri-nouveau
-
-zypper al Mesa-dri-nouveau
-
-sudo echo "blacklist nouveau" >> /etc/modprobe.d/50-blacklist.conf
-
-reboot

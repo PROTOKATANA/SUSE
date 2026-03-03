@@ -18,7 +18,7 @@ instalacion() {
 
 	if zypper search -i "$1" &>> /dev/null ; then echo -e "existente : [$1]"
 
-	else zypper install --auto-agree-with-licenses -y "$1" 2>&1 ; fi
+	else sudo zypper install --auto-agree-with-licenses -y "$1" 2>&1 ; fi
 
 }
 

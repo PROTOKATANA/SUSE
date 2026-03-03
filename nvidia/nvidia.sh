@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-if [ "$EUID" -ne 0 ] ; then echo "EJECUTAR SCRIPT COMO USUARIO ROOT" ; exit 1 ; fi
+if [ "$EUID" -ne 0 ] ; then echo "EJECUTAR SCRIPT COMO USUARIO ROOT" exit 1 ; fi
+
+USUARIO="katana"
 
 nvidia=(
 
@@ -14,38 +16,34 @@ nvidia=(
 
 	nvidia-gfxG06-kmp-default
 
-	nvidia-openG06
+	nvidia-gl-G06
 
-    nvidia-glG06
-
-    nvidia-utilsG06
-
-	nvidia-computeG06
+	nvidia-compute-G06
 
 )
 
-usermod -a -G render,video katana
+zypper remove -y Mesa-dri-nouveau
 
-zypper install openSUSE-repos-Slowroll-NVIDIA
+zypper al Mesa-dri-nouveau
+
+echo "blacklist nouveau" > /etc/modprobe.d/50-blacklist.conf
+
+usermod -a -G render,video $USUARIO
+
+zypper install -y openSUSE-repos-Slowroll-NVIDIA
 
 zypper refresh
 
-zypper update -y
+zypper update -y --auto-agree-with-licenses
+
+zypper remove -y nvidia-open-driver-G06-signed-kmp-default
 
 instalacion() {
 
 	if zypper search -i "$1" &>> /dev/null ; then echo -e "existente : [$1]"
 
-	else zypper install --auto-agree-with-licenses -y "$1" 2>&1 ; fi
+    else zypper install --auto-agree-with-licenses -y "$1" 2>&1 ; fi
 
 }
 
 for iter in "${nvidia[@]}" ; do instalacion "$iter" ; done
-
-# nvidia-driver-G06-kmp-default
-
-# uname -r
-
-# rpm -qa | grep -E "nvidia|kernel-default"
-
-# lsmod | grep -E "nouveau|nvidia"

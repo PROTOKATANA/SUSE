@@ -1,1 +1,0 @@
-sudo zypper install nvidia-gfxG05-kmp-default x11-video-nvidiaG05 nvidia-glG05

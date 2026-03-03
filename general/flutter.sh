@@ -52,7 +52,13 @@ for iter in "$@" ; do
 
 		mkdir -p "$HOME/$carpeta"
 
+		cd "$HOME/$carpeta" || exit
+
 		wget -O "$HOME/$carpeta/flutter.tar.xz" "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.27.1-stable.tar.xz"
+
+		tar -xf flutter.tar.xz
+
+		rm flutter.tar.xz
 
 	fi
 
@@ -63,6 +69,10 @@ for iter in "$@" ; do
 			echo "" >> $HOME/.bashrc
 
 			echo "export PATH=\"\$HOME/$carpeta/flutter/bin:\$PATH\"" >> $HOME/.bashrc
+
+			echo "" >> $HOME/.bashrc
+
+			echo "export GDK_BACKEND=wayland" >> "$HOME/.bashrc"
 
 		fi
 

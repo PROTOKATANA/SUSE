@@ -7,5 +7,3 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 sudo flatpak install -y flathub com.google.Chrome
 
 sudo flatpak install -y flathub md.obsidian.Obsidian
-
-sudo flatpak install -y flathub org.torproject.torbrowser-launcher
