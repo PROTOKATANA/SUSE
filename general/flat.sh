@@ -10,8 +10,6 @@ for iter in "$@" ; do
 
 		sudo flatpak install -y flathub com.google.Chrome
 
-		sudo flatpak install -y flathub md.obsidian.Obsidian
-
 	fi
 
 	if [ "$iter" == "--override"] ; then
