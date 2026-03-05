@@ -46,6 +46,14 @@ binarios=(
 
 	augeas
 
+	tnftp
+
+	gtk3-tools
+
+	gtk4-tools
+
+	NetworkManager
+
 )
 
 delete() {
