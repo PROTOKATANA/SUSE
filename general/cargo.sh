@@ -25,3 +25,13 @@ instalacion() {
 for iter in "${dependencias[@]}" ; do instalacion "$iter" ; done
 
 rustup default stable
+
+if ! grep -F "export PATH=\"\$HOME/.cargo/bin:\$PATH\"" $HOME/.bashrc ; then
+
+	echo "" >> $HOME/.bashrc
+
+	echo "export PATH=\"\$HOME/.cargo/bin:\$PATH\"" >> $HOME/.bashrc
+
+fi
+
+cargo install rinf_cli
