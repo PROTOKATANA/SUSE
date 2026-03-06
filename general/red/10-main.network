@@ -1,0 +1,11 @@
+[Match]
+
+Name=__INTERFACE__
+
+[Network]
+
+DHCP=ipv4
+
+IPv6AcceptRA=no
+
+LinkLocalAddressing=no
