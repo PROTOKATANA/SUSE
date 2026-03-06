@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+set -euo pipefail
+
 if [ "$EUID" -eq 0 ] ; then echo "EJECUTAR SCRIPT COMO USUARIO NOROOT" ; exit 1 ; fi
 
 for iter in "$@" ; do

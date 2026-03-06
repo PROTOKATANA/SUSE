@@ -2,8 +2,6 @@
 
 if [ "$EUID" -eq 0 ] ; then echo "EJECUTAR SCRIPT COMO USUARIO NOROOT" ; exit 1 ; fi
 
-ARCHIVO="$HOME/.bashrc"
-
 hip=(
 
 	hipcc

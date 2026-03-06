@@ -1,14 +1,16 @@
 #!/usr/bin/bash
 
+set -euo pipefail
+
 if [ "$EUID" -eq 0 ] ; then echo "EJECUTAR SCRIPT COMO USUARIO NOROOT" ; exit 1 ; fi
 
-REPO="https://developer.download.nvidia.com/compute/cuda/repos/opensuse15/x86_64/cuda-opensuse15.repo"
+repo="https://developer.download.nvidia.com/compute/cuda/repos/opensuse15/x86_64/cuda-opensuse15.repo"
 
 sudo zypper refresh
 
 sudo zypper update -y
 
-sudo zypper addrepo -p 100 $REPO
+sudo zypper addrepo -p 100 $repo
 
 sudo zypper --gpg-auto-import-keys refresh
 

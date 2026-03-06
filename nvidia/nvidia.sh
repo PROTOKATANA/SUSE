@@ -1,8 +1,10 @@
 #!/usr/bin/bash
 
+set -euo pipefail
+
 if [ "$EUID" -ne 0 ] ; then echo "EJECUTAR SCRIPT COMO USUARIO ROOT" exit 1 ; fi
 
-USUARIO="katana"
+usuario="katana"
 
 nvidia=(
 
@@ -28,7 +30,7 @@ zypper al Mesa-dri-nouveau
 
 echo "blacklist nouveau" > /etc/modprobe.d/50-blacklist.conf
 
-usermod -a -G render,video $USUARIO
+usermod -a -G render,video $usuario
 
 zypper install -y openSUSE-repos-Slowroll-NVIDIA
 
