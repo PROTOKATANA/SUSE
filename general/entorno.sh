@@ -12,8 +12,6 @@ dependencias=(
 
 	ninja
 
-	pkg-config
-
 	clang
 
 	gcc

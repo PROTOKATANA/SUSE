@@ -14,7 +14,7 @@ dependencias=(
 
 	ninja
 
-	pkg-config
+	pkgconf
 
 	gtk3-devel
 
